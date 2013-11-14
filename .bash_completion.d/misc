@@ -1,0 +1,10 @@
+#!/bin/bash
+
+complete -cf sudo
+complete -o nospace -A command killall
+
+# Add tab completion for SSH hostnames based on ~/.ssh/config, ignoring wildcards
+[ -e "$HOME/.ssh/config" ] && complete -o "default" -o "nospace" -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2)" scp sftp ssh mosh
+
+# Fasd
+[ hash fasd 2>/dev/null ] && _fasd_bash_hook_cmd_complete v m j o
