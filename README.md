@@ -183,3 +183,27 @@ Default configurations
 - `.gitconfig`: some sensible defaults for `git`.
 - `.drush/drushrc.php`: some sensible defaults for `drush`.
 - `.vimrc`: sensible vim defaults
+
+bootstrap.sh
+------------
+
+### Install
+
+```sh
+git clone https://github.com/generoi/dotfiles.git
+cd dotfiles
+./bootstrap.sh install
+```
+
+### Update
+
+```sh
+cd dotfiles
+./bootstrap.sh update
+```
+
+### Options
+
+```sh
+--dry     Dry run
+```
