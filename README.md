@@ -168,3 +168,4 @@ Default configurations
 - `.gitignore`: `.DS_Store`, `Desktop.ini`, `*~`, `*.bak`, `*.old`.
 - `.gitconfig`: some sensible defaults for `git`.
 - `.drush/drushrc.php`: some sensible defaults for `drush`.
+- `.vimrc`: sensible vim defaults
