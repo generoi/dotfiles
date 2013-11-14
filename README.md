@@ -13,6 +13,20 @@ export DEFAULT_USERNAME="oxy"
 export DEFAULT_HOSTNAME="minastirith"
 ```
 
+Making changes
+----------------
+
+If you want to take over the management of your dotfiles you are free to do so
+by editing whatever you want. But if you want to receive updates, do your
+changes in `.bash/local.sh` and `.bash/overrides.sh`, by doing so the system
+recognizes that you have not made changes and pulls in updates when told by an
+administrator.
+
+This works by cloning `https://github.com/generoi/dotfiles.git` into
+`~/.dotfiles` and symlinking all files to your `~/` directory. When an update
+is available, the system goes into your `~/.dotfiles` folder and runs `git
+checkout` and exiting if there are local changes.
+
 Functions and aliases
 ---------------------
 
