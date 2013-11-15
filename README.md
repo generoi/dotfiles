@@ -115,19 +115,46 @@ whenis                   Try to figure out when whatever date you give it is.
 ### Drush aliases
 
 ```sh
-drcc      drush cache-clear all
-drdb      drush updatedb && drush cc all
-drdu      drush sql-dump --ordered-dump --result-file=dump.sql
-dren      drush pm-enable
-drdis     drush pm-disable
-drf       drush features
-drfd      drush features-diff
-drfu      drush -y features-update
-drfr      drush -y features-revert
-drfra     drush -y features-revert all
-dr        drush
-drcd      change into a drush alias directory
-cdd       change into drupal root or specified module directory
+# Creates aliases to common drush commands that work in a global context:
+
+dr               drush
+ddd              drush drupal-directory
+dl               drush pm-download
+ev               drush php-eval
+sa               drush site-alias
+sa               drush site-alias --local (show local site aliases)
+st               drush core-status
+use              drush site-set
+
+# Aliases for drush commands that work on the current drupal site:
+
+cc               drush cache-clear
+cca              drush cache-clear all
+dis              drush pm-disable
+en               drush pm-enable
+i                drush pm-info
+pml              drush pm-list
+rf               drush pm-refresh
+unin             drush pm-uninstall
+up               drush pm-update
+upc              drush pm-updatecode
+updb             drush updatedb
+q                drush sql-query
+
+# Provides several common shell commands to work better with drush:
+
+ddd @dev         print the path to the root directory of @dev
+cdd @dev         change the current working directory to @dev
+lsd @dev         ls root folder of @dev
+lsd %files       ls "files" directory of current site
+lsd @dev:%devel  ls devel module directory in @dev
+@dev st          drush @dev core-status
+dssh @live       ssh to the remote server @live points at
+gitd @live pull  run `git pull` on the drupal root of @live
+
+# Drush site alias expansion is also done for the cpd command:
+
+cpd -R @site1:%files @site2:%files
 ```
 
 Globally installed utilities
