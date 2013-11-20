@@ -201,6 +201,14 @@ Globally installed utilities
   Usage: `z mu` if you've been active in the mushbarf diretory you would most
   likely `cd` into it.
 
+- [grunt](http://gruntjs.com) The JavaScript task runner.
+- [yslow](http://yslow.org/command-line-har/) Analyze page performance.
+- [bower](http://bower.io/) A package manager for the web.
+- [browserstack-cli](https://github.com/dbrans/browserstack-cli) Awesome command line interface for the browserstack api. **Read the setup about local setup!**
+- [marked](https://github.com/chjj/marked) Markdown parser and compiler
+- [yo](http://yeoman.io/) Yeoman 1.0 is more than just a tool. It's a workflow; a collection of tools and best practices working in harmony to make developing for the web even better.
+- [compass](http://compass-style.org/) CSS Authoring Framework
+
 Default configurations
 ----------------------
 
