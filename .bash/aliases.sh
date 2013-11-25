@@ -8,6 +8,7 @@ alias .....="cd ../../../.."
 alias ll="ls -lah"
 alias lsd="ls -la | grep '^d'"
 alias clean="find . \( -type d -name '.AppleDouble' \) -o \( -type f -name '*.DS_Store' \) -ls -delete"
+alias aptail="tail -f /var/log/apache2/error.log"
 
 # Rewrites
 alias df="df -h"
