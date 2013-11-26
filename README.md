@@ -67,6 +67,8 @@ z          search for most frecently used directories and cd into it
 zz         same as above but does it interactively
 v          search for most frecently used file and open it with vim
 vv         same as above but does it interactively
+o          search for most frecently used files and open with default application
+oo         same as above but does it interactively
 
 ip         show ip
 ips        list all local ips

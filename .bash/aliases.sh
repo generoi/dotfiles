@@ -52,6 +52,8 @@ have fasd && {
   alias zz="fasd_cd -d -i"
   alias v="fasd -f -e vim"
   alias vv="fasd -fi -e vim"
+  alias o="fasd -f -e xdg-open"
+  alias oo="fasd -fi -e xdg-open"
 }
 
 # Enable aliases to be sudo’ed
