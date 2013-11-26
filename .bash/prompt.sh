@@ -3,6 +3,11 @@
 [[ -z $DEFAULT_USERNAME ]] && DEFAULT_USERNAME="oxy"
 [[ -z $DEFAULT_HOSTNAME ]] && DEFAULT_HOSTNAME="cindy"
 
+ORANGE="\e[0;91m"
+GRAY="\e[0;90m"
+WHITE="\e[0;97m"
+RESET="\e[0;0m"
+
 __prompt() {
   [[ -n "$SSH_CLIENT" ]] && local ssh="ssh"
   if [[ $USER != $DEFAULT_USERNAME ]] || [[ $HOSTNAME != $DEFAULT_HOSTNAME ]]; then
@@ -17,4 +22,4 @@ __prompt() {
   echo " ${ssh}${user}${branch}${dirty}"
 }
 
-PS1="\n\[$ORANGE\]\W\[$GRAY\]\$(__prompt)\[$WHITE\]:\[$RESET\] "
+PS1="\n\[$ORANGE\]\w\[$GRAY\]\$(__prompt)\[$WHITE\]:\[$RESET\] "
