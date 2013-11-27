@@ -54,9 +54,15 @@ nnoremap zO zCzO
 nnoremap <leader>z zMzAzz
 
 " Create directories if they dont exist
-if !isdirectory($HOME . '/.vim/swap') | :silent !mkdir -p ~/.vim/swap >/dev/null 2>&1 | endif
-if !isdirectory($HOME . '/.vim/undo') | :silent !mkdir -p ~/.vim/undo >/dev/null 2>&1 | endif
-if !isdirectory($HOME . '/.vim/backup') | :silent !mkdir -p ~/.vim/backup >/dev/null 2>&1 | endif
+if !isdirectory($HOME . '/.vim/swap')
+  :silent !mkdir -p ~/.vim/swap >/dev/null 2>&1
+endif
+if !isdirectory($HOME . '/.vim/undo')
+  :silent !mkdir -p ~/.vim/undo >/dev/null 2>&1
+endif
+if !isdirectory($HOME . '/.vim/backup')
+  :silent !mkdir -p ~/.vim/backup >/dev/null 2>&1
+endif
 
 if exists("+undofile")
   set undodir=~/.vim/undo//
@@ -119,6 +125,7 @@ set showcmd
 set scrolloff=3
 " Toggle paste mode
 set pastetoggle=<F2>
+colorscheme slate
 
 " Resize splits when the window is resize
 au VimResized * exe "normal! \<c-w>="
