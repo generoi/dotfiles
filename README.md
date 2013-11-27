@@ -229,14 +229,14 @@ bootstrap.sh
 ```sh
 git clone https://github.com/generoi/dotfiles.git
 cd dotfiles
-./bootstrap.sh install
+./bootstrap.sh
 ```
 
 ### Update
 
 ```sh
 cd dotfiles
-./bootstrap.sh update
+./bootstrap.sh
 ```
 
 ### Options

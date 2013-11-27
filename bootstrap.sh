@@ -22,7 +22,11 @@ symlink() {
 }
 
 dirty() {
-  [[ $(git diff --shortstat 2> /dev/null | tail -n1) != ""  ]] && return 0
+  if [[ $(git diff --shortstat 2> /dev/null | tail -n1) != ""  ]]; then
+    return 0
+  else
+    return 1
+  fi
 }
 
 update() {
@@ -30,6 +34,10 @@ update() {
     git pull origin master && \
       git submodule init && \
       git submodule update
+
+    return 0
+  else
+    return 1
   fi
 }
 
@@ -37,7 +45,6 @@ install() {
   for f in $(find . -type f -not -wholename '*.git/*' -not -name 'bootstrap.sh' -not -name 'README.md'); do
     symlink $f $dest/${f#./}
   done
-  update
   echo "Done!"
 }
 
@@ -47,11 +54,7 @@ if [[ $1 == "--dry" ]]; then
 fi
 
 
-case $1 in
-  install) install ;;
-  update) update ;;
-  *) echo "Usage: bootstrap.sh [install|update]"; exit 1 ;;
-esac
+update && install
 
 popd > /dev/null
 
