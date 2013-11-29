@@ -185,6 +185,16 @@ targz() {
   echo "${tmpFile}.gz created successfully."
 }
 
+# Edit the files found with the previous "ag" command using Vim
+vag() {
+  declare -a files
+  while read -r file; do
+    echo "$file"
+    files+=("$file")
+  done < <(bash -c "ag -l $@")
+  "${EDITOR:-vim}" "${files[@]}"
+}
+
 # https://github.com/mathiasbynens/dotfiles/pull/249
 tre() {
   tree -aC -I '.git|node_modules|bower_components|.sass-cache' --dirsfirst "$@" | less -FRNX

@@ -1,4 +1,4 @@
 log
 tmp
 vendor
-sass-cache
+*.sql

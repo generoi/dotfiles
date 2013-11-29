@@ -17,7 +17,6 @@ alias ping="ping -c 5"
 alias vi="vim"
 
 # Shortcuts
-alias v="vim"
 have git && alias jg="git"
 
 alias week='date +%V'

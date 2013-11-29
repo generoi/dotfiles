@@ -6,3 +6,7 @@ Desktop.ini
 *~
 *.bak
 *.old
+
+# Cache
+.sass-cache
+.AppleDouble

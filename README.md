@@ -112,6 +112,7 @@ extractsql --help        Parse a full mysqldump and restore a single table.
 license                  Output a MIT license containing your name.
 rasterize --help         Rasterize a web site to a image.
 whenis                   Try to figure out when whatever date you give it is.
+vag {pattern}            Open all files found with `ag` in vim.
 ```
 
 ### Drush aliases
@@ -215,8 +216,8 @@ Default configurations
 ----------------------
 
 - `.jshintrc`: default jshint configurations.
-- `.agignore`: `log`, `tmp`, `vendor`, `sass-cache`.
-- `.gitignore`: `.DS_Store`, `Desktop.ini`, `*~`, `*.bak`, `*.old`.
+- `.agignore`: `log`, `tmp`, `vendor`, `*.sql`.
+- `.gitignore`: `.DS_Store`, `.AppleDouble`, `Desktop.ini`, `*~`, `*.bak`, `*.old`, `.sass-cache`.
 - `.gitconfig`: some sensible defaults for `git`.
 - `.drush/drushrc.php`: some sensible defaults for `drush`.
 - `.vimrc`: sensible vim defaults
