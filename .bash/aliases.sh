@@ -16,18 +16,16 @@ alias du="du -hc"
 alias ping="ping -c 5"
 alias vi="vim"
 
-# Shortcuts
-have git && alias jg="git"
-
 alias week='date +%V'
 alias cal='cal -m'
 
 # Enable mouse over mosh
 # https://github.com/keithw/mosh/issues/101#issuecomment-12317162
-have mosh && alias mosh="perl -E ' print \"\e[?1005h\e[?1002h\" '; mosh"
+command -v mosh > /dev/null && alias mosh="perl -E ' print \"\e[?1005h\e[?1002h\" '; mosh"
 
 # Git shortcuts
-have git && {
+command -v git > /dev/null && {
+  alias g="git"
   alias ga="git add"
   alias gp="git push"
   alias gpa="gp --all"
@@ -46,7 +44,7 @@ have git && {
 }
 
 # Fasd shortcuts
-have fasd && {
+command -v fasd > /dev/null && {
   alias z="fasd_cd -d"
   alias zz="fasd_cd -d -i"
   alias v="fasd -f -e vim"

@@ -55,11 +55,10 @@ if ! shopt -oq posix; then
   done
 fi
 
-have fasd && eval "$(fasd --init auto)"
+command -v fasd > /dev/null && eval "$(fasd --init auto)"
+command -v grunt > /dev/null && eval "$(grunt --completion=bash)"
 
-have grunt && eval "$(grunt --completion=bash)"
-
-have git && {
+command -v git > /dev/null && {
   git --global --unset user.name
   git --global --unset user.email
   git --global --unset github.user

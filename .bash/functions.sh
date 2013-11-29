@@ -1,11 +1,5 @@
 #!/bin/bash
 
-# Whether or not we have a command
-# http://dotfiles.org/~steve/.bashrc
-have() {
-  type "$1" &> /dev/null
-}
-
 # Filter through running processes
 psgrep() {
   ps aux | \grep -e "$@" | \grep -v "grep -e $@"
