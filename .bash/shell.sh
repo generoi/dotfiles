@@ -59,11 +59,11 @@ command -v fasd > /dev/null && eval "$(fasd --init auto)"
 command -v grunt > /dev/null && eval "$(grunt --completion=bash)"
 
 command -v git > /dev/null && {
-  git --global --unset user.name
-  git --global --unset user.email
-  git --global --unset github.user
+  git config --global --unset user.name
+  git config --global --unset user.email
+  git config --global --unset github.user
 
-  git --global --add user.name $GIT_USER_NAME
-  git --global --add user.email $GIT_USER_EMAIL
-  git --global --add github.user $GITHUB_USER
+  git config --global --add user.name $GIT_USER_NAME
+  git config --global --add user.email $GIT_USER_EMAIL
+  git config --global --add github.user $GITHUB_USER
 }
