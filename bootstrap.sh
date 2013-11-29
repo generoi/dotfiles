@@ -10,14 +10,14 @@ symlink() {
   local new=$2
   if ((dry)); then
     if [[ ! -d $(dirname $new) ]]; then
-      echo mkdir -p $(dirname $new)
+      echo mkdir -pv $(dirname $new)
     fi
-    [[ -f $new ]] && echo "rm -f $new"
-    echo "ln -sf $existing $new"
+    [[ -f $new ]] && echo "rm -fv $new"
+    echo "ln -sfv $existing $new"
   else
-    mkdir -p $(dirname $new)
-    [[ -f $new ]] && rm -f $new
-    ln -sf $existing $new
+    mkdir -pv $(dirname $new)
+    [[ -f $new ]] && rm -fv $new
+    ln -sfv $existing $new
   fi
 }
 
@@ -57,4 +57,3 @@ fi
 update && install
 
 popd > /dev/null
-
