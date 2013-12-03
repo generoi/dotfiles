@@ -31,17 +31,20 @@ dirty() {
 
 update() {
   if ! dirty; then
+    echo "Fetching updates..."
     git pull origin master && \
       git submodule init && \
       git submodule update
 
     return 0
   else
+    echo "Repository is dirty, cannot update."
     return 1
   fi
 }
 
 install() {
+  echo "Installing..."
   for f in $(find . -type f -not -wholename '*.git/*' -not -name 'bootstrap.sh' -not -name 'README.md'); do
     symlink $f $dest/${f#./}
   done
