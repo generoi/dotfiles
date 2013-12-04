@@ -219,13 +219,15 @@ play() {
   [[ -n $TMUX_SOCKET_DIR ]] && socket="-S ${TMUX_SOCKET_DIR}/${session}"
 
   if tmux has-session -t $session; then
+      echo "Attaching old session in 1..."; sleep 1
     tmux -2 attach-session -t $session $socket
   else
     if [[ -e ~/.tmux/sessions/$session ]]; then
-      echo "Session skeleton exists, running it in 1..."; wait 1
+      echo "Session skeleton exists, running it in 1..."; sleep 1
       . ~/.tmux/sessions/$session $socket
     else
-      tmux new-session -d -s $session -n "$session" "$socket" "bash"
+      echo "Creating new session in 1..."; sleep 1
+      tmux new-session -d -s $session -n $session $socket "bash"
     fi
   fi
 }
