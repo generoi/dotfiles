@@ -26,6 +26,3 @@ export PAGER="less"
 for dir in bin .local/bin node_modules/.bin drush .rvm/bin; do
   [[ -d "$HOME/$dir" ]] && PATH="$PATH:$HOME/$dir"
 done
-
-# Remove path duplicates
-PATH=$(echo "$PATH" | awk -v RS=':' -v ORS=":" '!a[$1]++')
