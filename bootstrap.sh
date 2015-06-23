@@ -4,6 +4,8 @@ pushd "$(dirname "${BASH_SOURCE}")" > /dev/null
 
 dry=0
 dest=$HOME
+rc=
+changed=0
 
 symlink() {
   local existing=$(readlink -f $1)
@@ -12,12 +14,18 @@ symlink() {
     if [[ ! -d $(dirname $new) ]]; then
       echo mkdir -pv $(dirname $new)
     fi
-    [[ -f $new ]] && echo "rm -fv $new"
-    echo "ln -sfv $existing $new"
+    if [[ -f $new ]] && ! cmp $new $existing; then
+      echo "rm -fv $new"
+      echo "ln -sfv $existing $new"
+      ((changed++))
+    fi
   else
     mkdir -pv $(dirname $new)
-    [[ -f $new ]] && rm -fv $new
-    ln -sfv $existing $new
+    if [[ -f $new ]] && ! cmp $new $existing; then
+      rm -fv $new
+      ln -sfv $existing $new
+      ((changed++))
+    fi
   fi
 }
 
@@ -56,7 +64,14 @@ if [[ $1 == "--dry" ]]; then
   set -- "$2"
 fi
 
-
-update && install
+update && install && rc=0 || rc=3
 
 popd > /dev/null
+
+if [[ $changed -eq 0 ]]; then
+  echo "No changes done."
+else
+  echo "$changed files changed."
+fi
+
+exit $rc
