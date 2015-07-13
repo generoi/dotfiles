@@ -16,6 +16,8 @@ symlink() {
     fi
     if [[ -f $new ]] && ! cmp $new $existing; then
       echo "rm -fv $new"
+    fi
+    if [[ ! -f $new ]]; then
       echo "ln -sfv $existing $new"
       ((changed++))
     fi
@@ -23,6 +25,8 @@ symlink() {
     mkdir -pv $(dirname $new)
     if [[ -f $new ]] && ! cmp $new $existing; then
       rm -fv $new
+    fi
+    if [[ ! -f $new ]]; then
       ln -sfv $existing $new
       ((changed++))
     fi
