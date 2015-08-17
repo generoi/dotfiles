@@ -60,15 +60,15 @@ command -v grunt > /dev/null && eval "$(grunt --completion=bash)"
 
 command -v git > /dev/null && {
   if [[ -n "$GIT_USER_NAME" ]]; then
-    git config --global --unset user.name
+    git config --global --unset-all user.name
     git config --global --add user.name "$GIT_USER_NAME"
   fi
   if [[ -n "$GIT_USER_EMAIL" ]]; then
-    git config --global --unset user.email
+    git config --global --unset-all user.email
     git config --global --add user.email "$GIT_USER_EMAIL"
   fi
   if [[ -n "$GITHUB_USER" ]]; then
-    git config --global --unset github.user
+    git config --global --unset-all github.user
     git config --global --add github.user "$GITHUB_USER"
   fi
 }
