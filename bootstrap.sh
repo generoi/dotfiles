@@ -7,8 +7,12 @@ dest=$HOME
 rc=
 changed=0
 
+realpath() {
+  [[ $1 = /* ]] && echo "$1" || echo "$PWD/${1#./}"
+}
+
 symlink() {
-  local existing=$(readlink -f $1)
+  local existing="$(realpath "$1")"
   local new=$2
   if ((dry)); then
     if [[ ! -d $(dirname $new) ]]; then
