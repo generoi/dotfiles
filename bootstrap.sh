@@ -13,7 +13,7 @@ realpath() {
 
 symlink() {
   local existing="$(realpath "$1")"
-  local new=$2
+  local new="$2"
   if ((dry)); then
     if [[ ! -d $(dirname $new) ]]; then
       echo mkdir -pv $(dirname $new)
@@ -26,12 +26,12 @@ symlink() {
       ((changed++))
     fi
   else
-    mkdir -pv $(dirname $new)
-    if [[ -f $new ]] && ! cmp $new $existing; then
-      rm -fv $new
+    mkdir -pv "$(dirname $new)"
+    if [[ -f "$new" ]] && ! cmp "$new" "$existing"; then
+      rm -fv "$new"
     fi
-    if [[ ! -f $new ]]; then
-      ln -sfv $existing $new
+    if [[ ! -f "$new" ]]; then
+      ln -sfv "$existing" "$new"
       ((changed++))
     fi
   fi
@@ -62,7 +62,7 @@ update() {
 install() {
   echo "Installing..."
   for f in $(find . -type f -not -wholename '*.git/*' -not -name 'bootstrap.sh' -not -name 'README.md'); do
-    symlink $f $dest/${f#./}
+    symlink "$f" "$dest/${f#./}"
   done
   echo "Done!"
 }
