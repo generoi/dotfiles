@@ -27,7 +27,7 @@ agent_has_keys() {
 }
 
 agent_load_env() {
-    . "$env" >/dev/null
+    . "$env" >/dev/null 2>&1
 }
 
 agent_start() {
@@ -35,7 +35,7 @@ agent_start() {
     . "$env" >/dev/null
 }
 
-if [ -z "$SSH_CONNECTION"  ]; then
+if [ -z "$SSH_CONNECTION" ]; then
   if ! agent_is_running; then
       agent_load_env
   fi
