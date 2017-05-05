@@ -23,6 +23,6 @@ export VISUAL="vim"
 export PAGER="less"
 
 # PATH additions
-for dir in bin .local/bin .npm-packages/bin node_modules/.bin drush .rvm/bin; do
+for dir in bin .local/bin .npm-packages/bin node_modules/.bin drush .rvm/bin .composer/vendor/bin; do
   [[ -d "$HOME/$dir" ]] && PATH="$PATH:$HOME/$dir"
 done
