@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# Always enable colored `grep` output
-export GREP_OPTIONS="--color=auto"
-
 export LANG="en_US.UTF-8"
 
 # For setting history length see HISTSIZE and HISTFILESIZE in bash(1)

@@ -16,6 +16,7 @@ alias du="du -hc"
 alias ping="ping -c 5"
 alias vi="vim"
 
+alias grep='grep --color=auto'
 alias week='date +%V'
 alias cal='cal -m'
 
