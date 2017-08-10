@@ -7,6 +7,10 @@ Desktop.ini
 *.bak
 *.old
 
+# Log files
+*.log
+
 # Cache
 .sass-cache
 .AppleDouble
+.phpcomplete_extended

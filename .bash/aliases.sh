@@ -1,5 +1,3 @@
-#!/bin/bash
-
 # New commands
 alias ..="cd .."
 alias ...="cd ../.."
@@ -18,7 +16,6 @@ alias vi="vim"
 
 alias grep='grep --color=auto'
 alias week='date +%V'
-alias cal='cal -m'
 
 # Enable mouse over mosh
 # https://github.com/keithw/mosh/issues/101#issuecomment-12317162

@@ -1,17 +1,15 @@
 Welcome!
 ========
 
-To get git working correctly you should edit `.bash/local.sh` and add your own
-information, such as git user name, email and github user.
+To get git working correctly you should add `~./.gitconfig.local` where you
+configure your `user.email`, `user.name` and `github.user` values.
 
-```sh
-export GIT_USER_NAME="oxy"
-export GIT_USER_EMAIL="public@oxy.fi"
-export GITHUB_USER="oxyc"
+    [user]
+      name = Oskar Schöldström
+      email = m@oxy.fi
 
-export DEFAULT_USERNAME="oxy"
-export DEFAULT_HOSTNAME="minastirith"
-```
+    [github]
+      user = oxyc
 
 Making changes
 ----------------
@@ -44,9 +42,9 @@ You can edit them or add more in the `.bash/aliases.sh` file.
 ll         list all files with human readable sizes ls -lah
 lsd        list all directories
 clean      recursively delete .DS_Store files.
-v          vim
-g          git
+aptail     tail the apache error log
 
+g          git
 ga         git add
 gp         git push
 gpa        git push --all
@@ -92,135 +90,22 @@ OPTIONS    make an OPTIONS request
 These are located in `.bash/functions.sh`, feel free to modify/add.
 
 ```
-psgrep {apache}          Filter through running processes by grep regexp
-extract {foo.tgz}        One command to extract all compressed formats
-bu {file}                Backup file to the `.backup/` folder in your $HOME
-mkcdir {foo}             Make directory `foo` and cd into it
-duh                      Sort and display the size of files/directories
-glgithub                 Git log with per-commit clickable GitHub URLs.
-imageshadow {img.png}    Create a dropshadow on specified image.
-getcertnames {foo.com}   Show all names listed in the SSL certificate of domain
-= {1+(5*3)/7}            A calculator
-escape                   Escape UTF-8 characters into their 3-byte format
-unicode                  Decode \x{ABCD}-style unicode escape sequences
 codepoint                Get a character's Unicode code point
+duh                      Sort and display the size of files/directories
+escape                   Escape UTF-8 characters into their 3-byte format
+extract {foo.tgz}        One command to extract all compressed formats
+fs {foo}                 Determine size of a file or total size of a directory
+getcertnames {foo.com}   Show all names listed in the SSL certificate of domain
+gf                       Git log with per-commit clickable GitHub URLs.
+gz                       Compare original and gzipped file size
+have                     Whether or not we have a command
+psgrep {apache}          Filter through running processes by grep regexp
 targz                    Create a .tar.gz archive using `zopfli`, `pigz` or `gzip`
 tre {dir}                List the directory tree ignoring unwanted folders
-gitio {url}              Create a git.io short URL
-dataurl {file}           Create a data URL from a file
-extractsql --help        Parse a full mysqldump and restore a single table.
-license                  Output a MIT license containing your name.
-rasterize --help         Rasterize a web site to a image.
-whenis                   Try to figure out when whatever date you give it is.
+unidecode                Decode \x{ABCD}-style unicode escape sequences
 vag {pattern}            Open all files found with `ag` in vim.
+= {1+(5*3)/7}            A calculator
 ```
-
-### Drush aliases
-
-```sh
-# Creates aliases to common drush commands that work in a global context:
-
-dr               drush
-ddd              drush drupal-directory
-dl               drush pm-download
-ev               drush php-eval
-sa               drush site-alias
-sa               drush site-alias --local (show local site aliases)
-st               drush core-status
-use              drush site-set
-
-# Aliases for drush commands that work on the current drupal site:
-
-cc               drush cache-clear
-cca              drush cache-clear all
-dis              drush pm-disable
-en               drush pm-enable
-i                drush pm-info
-pml              drush pm-list
-rf               drush pm-refresh
-unin             drush pm-uninstall
-up               drush pm-update
-upc              drush pm-updatecode
-updb             drush updatedb
-q                drush sql-query
-
-# Provides several common shell commands to work better with drush:
-
-ddd @dev         print the path to the root directory of @dev
-cdd @dev         change the current working directory to @dev
-lsd @dev         ls root folder of @dev
-lsd %files       ls "files" directory of current site
-lsd @dev:%devel  ls devel module directory in @dev
-@dev st          drush @dev core-status
-dssh @live       ssh to the remote server @live points at
-gitd @live pull  run `git pull` on the drupal root of @live
-
-# Drush site alias expansion is also done for the cpd command:
-
-cpd -R @site1:%files @site2:%files
-```
-
-Globally installed utilities
-----------------------------
-
-- `ag` [The Silver Searcher](https://github.com/ggreer/the_silver_searcher)
-
-  *A code searching tool similar to ack, with a focus on speed.*
-
-  Usage: `ag "(hook_menu|hook_permissions)" /campaign/`
-
-  Notes: ignores `log`, `tmp`, `vendor`, `sass-cache` and whatever is in your `.gitignore` by default
-
-- `jshint` [JSHint](http://www.jshint.com/)
-
-  *Error and code quality tool for JavaScript code*
-
-  Usage: `jshint file.js`
-
-- `drush` [Drush](http://drush.ws/)
-
-  *A command line shell and scripting interface for Drupal*
-
-  Usage: `drush`
-
-- `wp-cli` [WP-Cli](http://wp-cli.org/)
-
-  *A set of command-line tools for managing WordPress installations.*
-
-  Usage: `wp`
-
-- `mosh` [Mosh](http://mosh.mit.edu/)
-
-  *Mosh is a replacement for ssh, designed for roaming and unstable connections.*
-
-  Usage: just like ssh, however `mosh` must be installed on the server to you
-  are connecting to. Only our development server has `mosh` installed, but you
-  should definitely install `mosh` on your own computer and use it to connect.
-
-- `fasd` [fasd](https://github.com/clvv/fasd)
-
-  *A command-line productivity booster, offering quick access to files and directories*
-
-  Usage: `z mu` if you've been active in the mushbarf diretory you would most
-  likely `cd` into it.
-
-- [grunt](http://gruntjs.com) The JavaScript task runner.
-- [yslow](http://yslow.org/command-line-har/) Analyze page performance.
-- [bower](http://bower.io/) A package manager for the web.
-- [browserstack-cli](https://github.com/dbrans/browserstack-cli) Awesome command line interface for the browserstack api. **Read the setup about local setup!**
-- [marked](https://github.com/chjj/marked) Markdown parser and compiler
-- [yo](http://yeoman.io/) Yeoman 1.0 is more than just a tool. It's a workflow; a collection of tools and best practices working in harmony to make developing for the web even better.
-- [compass](http://compass-style.org/) CSS Authoring Framework
-
-Default configurations
-----------------------
-
-- `.jshintrc`: default jshint configurations.
-- `.agignore`: `log`, `tmp`, `vendor`, `*.sql`.
-- `.gitignore`: `.DS_Store`, `.AppleDouble`, `Desktop.ini`, `*~`, `*.bak`, `*.old`, `.sass-cache`.
-- `.gitconfig`: some sensible defaults for `git`.
-- `.drush/drushrc.php`: some sensible defaults for `drush`.
-- `.vimrc`: sensible vim defaults
 
 bootstrap.sh
 ------------

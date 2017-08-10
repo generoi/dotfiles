@@ -49,12 +49,6 @@ set -o vi
 # rvm
 [[ -s ~/.rvm/scripts/rvm ]] && source ~/.rvm/scripts/rvm
 
-if ! shopt -oq posix; then
-  for file in ~/.bash_completion.d/* /etc/bash_completion; do
-    [ -r "$file" ] && source "$file"
-  done
-fi
-
 command -v fasd > /dev/null && eval "$(fasd --init auto)"
 command -v grunt > /dev/null && eval "$(grunt --completion=bash)"
 
